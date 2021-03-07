@@ -1,0 +1,8 @@
+Checklist before fabrication
+
+1. Check all unused/free ports are added added to headers
+2. Check all unused inputs are not floating
+3. Check reset button can be bridged by jumper
+4. Check critical traces can be cut for installing bodges
+5. check zilog datasheets for direction of pins
+6. doublcheck wiring on pins of all ICs

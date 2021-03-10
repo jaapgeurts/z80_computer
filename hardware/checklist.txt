@@ -5,4 +5,11 @@ Checklist before fabrication
 3. Check reset button can be bridged by jumper
 4. Check critical traces can be cut for installing bodges
 5. check zilog datasheets for direction of pins
-6. doublcheck wiring on pins of all ICs
+6. double check wiring on pins of all ICs (following datasheets). Check pins too
+7. check clock freq on PSG
+8. PS/2 buffer + PS/2 host->dev communication
+9. Add port buffers where necessary
+10. Check all wiring lightup in kicad
+11. Add 5v input plug; bypassing regulator
+12. Test points?
+13. check each chip has 100n bypass cap

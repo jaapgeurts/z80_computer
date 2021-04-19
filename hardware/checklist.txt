@@ -1,29 +1,37 @@
 Checklist before fabrication
 
-1. Check all unused/free ports are added added to headers
-2. Check all unused inputs are not floating
-3. Check reset button can be bridged by jumper
-4. Check critical traces can be cut for installing bodges
-5. check zilog datasheets for direction of pins
-6. double check wiring on pins of all ICs (following datasheets). Check pins too
-7. check clock freq on PSG
-8. PS/2 buffer + PS/2 host->dev communication - COMPLETE
-9. Add port buffers where necessary
-10. Check all wiring lightup in kicad
-11. Add 5v input plug; bypassing regulator
-12. Test points?
-13. check each chip has 100n bypass cap
-14. lcd displays: check which side is top. (orientation)
-15. add led for halt 
-16. power led
-17. label ports
-18. add expansion port 
-19. add jumpers for clock speed
-20. NMI button
-21. 3 user leds (r g b)
-22. 3 user buttons
-23. show switch settings on silkscreen
-24. show battery type on silkscreen
-25. show port pinouts on silkscreen
+DONE 1. Check all unused/free ports are added added to headers
+DONE 2. Check all unused inputs are not floating
+DONE 3. Check reset button can be bridged by jumper (for external button)
+DONE 4. Check critical traces can be cut for installing bodges
+DONE 5. check zilog datasheets for direction of pins
+DONE 6. double check wiring on pins of all ICs (following datasheets). Check pins too
+DONE 7. check clock freq on PSG
+DONE 8. PS/2 buffer + PS/2 host->dev communication
+DONE 9. Add port buffers where necessary
+DONE 10. Check all wiring lightup in kicad
+DONE 11. Add 5v input plug; bypassing regulator
+DONE 12. Test points?
+DONE 13. check each chip has 100n bypass cap
+DONE 14. lcd displays: check which side is top. (orientation)
+WONTDO 15. add led for halt 
+DONE 16. power led
+DONE 17. label ports
+DONE 18. add expansion port 
+WONTDO 19. add jumpers for clock speed
+DONE 20. NMI button
+DONE 21. 3 user leds (r g b)
+DONE 22. 3 user buttons
+DONE 23. show switch settings on silkscreen
+DONE 24. show battery type on silkscreen
+DONE 25. show port pinouts on silkscreen
 26. check pcb power switch if it matches footprint
-27. check ic pincounts on pcb
+DONE 27. check ic pincounts on pcb
+DONE 28. verify orientation of the compact flash card connector and pin assignments/wiring
+DONE 29. bring values to silkscreen layer
+DONE 30. add revision to PCB / add logo / add name
+DONE 31. add via stiching
+DONE 32. Add board holes for compactflash screws
+33. Check edges make sure that ground runs around all board edges
+34. write max current draw/sink for GPIO, default speed for serial
+35. label areas and what they do

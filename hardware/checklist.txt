@@ -35,3 +35,10 @@ DONE 32. Add board holes for compactflash screws
 33. Check edges make sure that ground runs around all board edges
 34. write max current draw/sink for GPIO, default speed for serial
 35. label areas and what they do
+36. add buzzer
+37. label speaker with +/-
+38. audio jack out. connect ring ground
+39. connect pwr of 2676 to gnd
+40. ps/2 connector is reversed
+41. change led order connections so that it matches the output bits
+42. label GALS io or mem

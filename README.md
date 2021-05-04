@@ -81,7 +81,7 @@ Since port A and port B have on-board devices connected, the direction should be
 |PD6 | B6     |Output only|
 |PD7 | B7     |Output only|
 
-Port D outputs are routed through a ULN2008 and allow sourcing and sinking of at least 100ma. Sourcing is limited by the 1/4 watt pullup resistor and the power supply. Sinking is limited to max 500ma for all pins together. So 500ma is shared between all outputs; i.e. two pins can sink 250ma each etc..
+Port D outputs are open collector and buffered throught a ULN2008. Sinking is limited to max 500ma for all pins together. So 500ma is shared between all outputs; i.e. two pins can sink 250ma each etc..
 
 
 ### Z84C2004
@@ -170,6 +170,17 @@ Standard TTL level.
 Default 9600, 8N1
 
 ## PS/2 Keyboard
+
+## POST indicators
+
+Explain led errors
+01 001
+02 010
+03 011
+04 100
+05 101
+06 110
+07 111
 
 ## Soft power
 

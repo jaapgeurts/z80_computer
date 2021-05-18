@@ -49,9 +49,13 @@ Memory IO is divided into 8 blocks of 32 bytes each
 0xC0 - CF, Compact Fash, IDE interface
 0xE0 - Free
 
-## Screen
+## Screen - ILI9488
 
-The screen is a graphics screen and supports one mode. Characters drawn are blitted from rom to the screen and is backed by a character array.
+Ports: 0xA0, 0xA1
+
+TFT driver IC is ILI9488 in 8bit parallel interface mode.
+
+The screen is a graphics screen and supports one mode. Characters drawn are blitted from ROM to the screen and is backed by a character array.
 Resolution: 480x320
 Text output resolution: 60x20 characters
 
@@ -65,6 +69,9 @@ Group C & D are mapped to port A and port B of the AY-3-8910
 
 ### PSG
 
+Ports:0x80 (Register select), 0x81 (Data)
+Register map: R7(dir), R15 (Input), R15 (Output)
+
 Since port A and port B have on-board devices connected, the direction should be programmed as indicated below:
 
 |GPIO|PSG Port|I/O        |
@@ -75,6 +82,8 @@ Since port A and port B have on-board devices connected, the direction should be
 |PC5 | A5     | Input only|
 |PC6 | A6     | Input only|
 |PC7 | A7     | Input only|
+
+|GPIO|PSG Port|I/O        |
 |----|--------|-----------|
 |PD4 | B4     |Output only|
 |PD5 | B5     |Output only|
@@ -84,7 +93,9 @@ Since port A and port B have on-board devices connected, the direction should be
 Port D outputs are open collector and buffered throught a ULN2008. Sinking is limited to max 500ma for all pins together. So 500ma is shared between all outputs; i.e. two pins can sink 250ma each etc..
 
 
-### Z84C2004
+### Z84C2010 PIO
+
+Ports: 0x40
 
 |GPIO   |Z84C2004 Port|I/O  |
 |-------|-------------|-----|
@@ -98,6 +109,8 @@ Port D outputs are open collector and buffered throught a ULN2008. Sinking is li
 |PA7    | A7          | I/O |
 |PARDY  | ARDY        | I/O |
 |/PASTB | ASTB        | I/O |
+
+|GPIO   |Z84C2004 Port|I/O  |
 |-------|-------------|-----|
 |PB0    | B0          | I/O |
 |PB1    | B1          | I/O |
@@ -112,7 +125,7 @@ Port D outputs are open collector and buffered throught a ULN2008. Sinking is li
 
 
 Port A can source 1.6ma, Port B can source 5ma per pin.
-Port A & B can both sink max per pin 15ma.
+Port A & B can both sink max 15ma per pin.
 
 Note: This device does not have a RESET line and must be reset in software.
 
@@ -140,7 +153,9 @@ NMI is connected directly to the NMI interrupt of the CPU
 
 RESET is connected directly connected to reset line of board
 
-## Timer
+## Timer - Z84C3010 CTC
+
+Ports: 0x00
 
 System clock = 7,372,800 Hz
 Baudrate clock on CLK/TRG0 = 3,686,400 Hz
@@ -159,15 +174,51 @@ The minimum and maximum interval range of the timer is: ~2.17us - ~0.009s or 460
 
 ### Timer/Counter header
 
-## RS232
+## RS232 - Z84C4010 SIO/0
+
+Ports: 0x40(UART A data), 0x41(UART B data), 0x42(UART A control), 0x43(UART b control)
+
+Standard TTL level.
+Default 9600, 8N1
 
 
 ## PSG - AY-3-8910
 
+Ports: 0x80(Register select) & 0x81 (Data)
+
 Input frequency: 1,843,200 Hz
 
-Standard TTL level.
-Default 9600, 8N1
+Register map:
+
+|Register|Description         |B7-B0            |
+|--------|--------------------|-----------------|
+|R0      |Channel A Period    |8bits fine       |
+|R1      |                    |Low nibble coarse|
+|R2      |Channel B Period    |8bits fine       |
+|R3      |                    |Low nibble coarse|
+|R4      |Channel C Period    |8bits fine       |
+|R5      |                    |Low nibble coarse|
+|R6      |Noise Period        |5 low bits period|
+|R7      |/Enable             ||
+|R8      |Channel A Amplitude ||
+|R9      |Channel B Amplitude ||
+|R10     |Channel C Amplitude ||
+|R11     |Envelope Period     |8bits fine       |
+|R12     |Envelope Period     |8bits course     |
+|R13     |Envelope Shape/Cycle||
+|R14     |Port A              |8bits data       |
+|R15     |Port B              |8bits data       |
+
+
+## Realtime Clock - RTC72421
+
+Port: 0x20-0x2F
+
+## Compact Flash
+
+Ports: 0xC0
+
+Follows standard IDE interface.
 
 ## PS/2 Keyboard
 

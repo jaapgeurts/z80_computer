@@ -1,9 +1,9 @@
 [submodule "hardware/schematic"]
 	path = hardware/schematic
-	url = https://github.com/jaapgeurts/z80_hardware.git
+	url = git@github.com:jaapgeurts/z80_hardware.git
 [submodule "software/firmware"]
 	path = software/firmware
-	url = https://github.com/jaapgeurts/z80_firmware.git
+	url = git@github.com:jaapgeurts/z80_firmware.git
 [submodule "software/retro8"]
 	path = software/retro8
-	url = https://github.com/jaapgeurts/retro8.git
+	url = git@github.com:jaapgeurts/retro8.git
